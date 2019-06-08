@@ -1,0 +1,15 @@
+import sys
+import threading, time
+ 
+class Thread(threading.Thread):
+    def __init__(self, num):
+        threading.Thread.__init__(self)
+        self.num = num
+ 
+    def run(self):
+        time.sleep(1)
+        sys.stdout.write("Hilo %d\n" % self.num)
+ 
+for i in range(10):
+    t = Thread(i)
+    t.start()
